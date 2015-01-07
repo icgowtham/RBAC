@@ -1,0 +1,68 @@
+<h1>Summary View</h1>
+
+<h4>Users</h4>
+{% if users_list %}
+    <ul>
+    {% for users in users_list %}
+        <li><a href="/rbac/users/{{ users.user }}/">{{ users.user_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}
+
+
+<h4>Roles</h4>
+{% if roles_list %}
+    <ul>
+    {% for roles in roles_list %}
+        <li><a href="/rbac/roles/{{ roles.role }}/">{{ roles.role_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No roles are available.</p>
+{% endif %}
+
+<h4>Resources</h4>
+{% if resources_list %}
+    <ul>
+    {% for resources in resources_list %}
+        <li><a href="/rbac/resources/{{ resources.resource }}/">{{ resources.resource_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No resources are available.</p>
+{% endif %}
+
+<h4>Actions</h4>
+{% if actions_list %}
+    <ul>
+    {% for actions in actions_list %}
+        <li><a href="/rbac/actions/{{ actions.action }}/">{{ actions.action_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No actions are specified.</p>
+{% endif %}
+
+<h4>Role Permissions</h4>
+{% if role_permission_list %}
+    <ul>
+    {% for rp in role_permission_list %}
+        <li>The role <b><i>{{ rp.role.role_name }}</i></b> has permission to <b><i>{{ rp.action.action_name }}</i></b> the resource <b><i>{{ rp.resource.resource_name }}</i></b>.</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No roles and permission combinations are specified.</p>
+{% endif %}
+
+<h4>User Roles</h4>
+{% if user_roles_list %}
+    <ul>
+    {% for user_role in user_roles_list %}
+        <li>User <b><i>{{ user_role.user.user_name }}</i></b> is associated with the role <b><i>{{ user_role.role.role_name }}</i></b></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No user and roles combinations are specified.</p>
+{% endif %}
