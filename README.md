@@ -1,2 +1,2 @@
 # repos
-Repository root - This will contain python specific projects.
+Repository for sample programs and projects created using Python.
